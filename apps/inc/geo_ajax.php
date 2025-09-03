@@ -25,6 +25,7 @@
 -$r=array('status'=>false,'error'=>'an error occured');
 -if (!empty($_GET['id'])){
 +header('Content-Type: application/json; charset=utf-8');
++header('Cache-Control: public, max-age=3600');
 +
 +$r = ['status'=>false,'error'=>'an error occured'];
 +
@@ -110,3 +111,4 @@
  }
 -echo json_encode($r);
 +echo json_encode($r, JSON_UNESCAPED_UNICODE);
+
