@@ -1,11 +1,12 @@
 <?php
-$dbhost='localhost';
-$dbuser='root';
-$dbpass='';
-$dbname='wilayah';
-$db_dsn = "mysql:dbname=$dbname;host=$dbhost;charset=utf8mb4";
-$tbl_wilayah="wilayah_level_1_2";
-$db = new PDO($db_dsn, $dbuser, $dbpass, [
+$dbhost = getenv('DB_HOST') ?: '127.0.0.1';
+$dbname = getenv('DB_NAME') ?: 'wilayah';
+$dbuser = getenv('DB_USER') ?: 'root';
+$dbpass = getenv('DB_PASS') ?: '';
+$tbl_wilayah = "wilayah_level_1_2";
+
+$dsn = "mysql:host={$dbhost};dbname={$dbname};charset=utf8mb4";
+$db = new PDO($dsn, $dbuser, $dbpass, [
   PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
   PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
   PDO::ATTR_EMULATE_PREPARES => false,
