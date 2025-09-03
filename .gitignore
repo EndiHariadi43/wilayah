@@ -1,4 +1,6 @@
 /backup
 dump-*
-/inc/db.php
+/apps/inc/db.php
+/apps/inc/*.local.php
+/.env
 /src
